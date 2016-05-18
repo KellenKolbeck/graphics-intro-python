@@ -53,8 +53,40 @@ while not done:
 		for y_offset in range(100, 200, 20): 
 			pygame.draw.line(screen,RED,[0,10+y_offset],[100,110+y_offset], 5)
 
-		
+		# Draw x's to the screen
+		for x_offset in range(100, 400, 50):
+			pygame.draw.line(screen,BLACK,[x_offset,100],[x_offset-10,90], 2)
+			pygame.draw.line(screen,BLACK,[x_offset,90],[x_offset-10,100], 2)
 
+		# Draw a rectangle to the screen
+		pygame.draw.rect(screen, GREEN, [100, 100, 50, 25], 10)
+
+		# Draw an ellipse to the screen
+		pygame.draw.ellipse(screen, BLACK, [250, 250, 100, 100], 2)
+
+		# Draw multiple arcs in different quadrants of an ellipse
+		pygame.draw.arc(screen, GREEN, [100, 100, 250, 200], PI / 2, PI, 2)
+		pygame.draw.arc(screen, RED, [100, 100, 250, 200], 0, PI / 2, 2)
+		pygame.draw.arc(screen, BLACK, [100, 100, 250, 200], 3*PI / 2, 2* PI, 2)
+		pygame.draw.arc(screen, RED, [100, 100, 250, 200], PI, 3*PI / 2, 2)
+
+		# Draw a polygon
+		pygame.draw.polygon(screen, BLACK, [[200, 200], [300, 100], [15, 5]], 6)
+
+		# Drawing text to the screen
+		# Select the font to use, size, bold, italic
+		font = pygame.font.SysFont('Arial', 60, False, False)
+
+		# Render the text. "True" means anti-aliased text.
+		# Black is the color. The variable "BLACK" was defined earlier
+		# at the top of the program.
+		# Note: This line creates an image of the letters,
+		# but does not put the image of letters on screen yet
+		text = font.render("My text", True, BLACK) 
+
+		# Put the image of the text on the screen at 250 x 250
+		screen.blit(text, [250, 250])
+		
 		# Update the screen with what I have drawn
 		pygame.display.flip()
 
