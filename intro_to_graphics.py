@@ -45,12 +45,21 @@ while not done:
 		pygame.draw.line(screen, RED, [10, 50], [1000, 600], 40)
 		pygame.draw.line(screen, BLACK, [500, 60], [320, 340], 10)
 		pygame.draw.line(screen, GREEN, [45, 100], [450, 1], 15)
+		pygame.draw.rect(screen, BLACK, [55, 50, 20, 25])
+		pygame.draw.line(screen, GREEN, [0, 0], [100, 100], 5)
+
+		# Draw on the screen several lines from (0,10) to (100,110)
+		# 5 pixels wide using a for loop
+		for y_offset in range(100, 200, 20): 
+			pygame.draw.line(screen,RED,[0,10+y_offset],[100,110+y_offset], 5)
+
+		
 
 		# Update the screen with what I have drawn
 		pygame.display.flip()
 
 		# Limit to 60 frames per second
-		clock.tick(60)
+		clock.tick(60) 
 
 
 pygame.quit()
